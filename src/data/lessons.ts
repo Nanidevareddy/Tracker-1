@@ -749,7 +749,6 @@ else:
       "text": "pip is Python's standard package manager to install, upgrade, and manage third-party libraries.\n\nBasic pip commands:\n```\npip install package_name          # Install a package\npip install --upgrade package_name # Upgrade a package\npip uninstall package_name        # Uninstall a package\npip list                         # List installed packages\n```\n\nUsing virtual environments isolates project dependencies:\n\n```bash\npython -m venv env               # Create virtual environment\nsource env/bin/activate          # Activate on Linux/macOS\n.\\env\\Scripts\\activate         # Activate on Windows\npip install package_name         # Install inside env\ndeactivate                      # Exit env\n```\n\nExample: Installing and using `requests`:\n```bash\npip install requests\n```\n\n```python\nimport requests\nresponse = requests.get('https://api.github.com')\nprint(response.status_code)\nprint(response.json())\n```\n\nBest practices:\n- Use virtual environments.\n- Keep dependencies in `requirements.txt`.\n- Organize large projects with packages."
     }
   ]
-}
 },
   {
   "id": "intermediate-level",
