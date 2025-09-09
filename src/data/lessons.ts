@@ -856,84 +856,84 @@ else:
     }
   ]
 },
-  {
-  "id": "advanced-level",
-  "title": "Advanced Level",
-  "topics": [
-    {
-      "id": "working-with-json-and-apis",
-      "title": "Working with JSON and APIs",
-      "sections": [
-        {
-          "id": "json-parsing",
-          "title": "JSON Parsing",
-          "text": "JSON (JavaScript Object Notation) is a lightweight, text-based format for data interchange. It is widely used for transmitting data in web applications.\n\nIn Python, the built-in `json` module allows parsing JSON strings or files into Python objects and vice versa.\n\nExample:\n```python\nimport json\n\n# JSON string\njson_data = '{\"name\": \"Alice\", \"age\": 30, \"is_student\": false}'\n\n# Parse JSON string to Python dictionary\ndata = json.loads(json_data)\nprint(data['name'])  # Output: Alice\n\n# Serialize Python object to JSON string\njson_string = json.dumps(data, indent=4)\nprint(json_string)\n```\n\nAdvanced:\n- Use `json.load()` and `json.dump()` for reading/writing JSON files.\n- Handle exceptions like `json.JSONDecodeError` for invalid JSON.\n- Customize serialization with `default` parameter for complex objects.\n\nExample of custom serialization:\n```python\nclass User:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nuser = User('Bob', 25)\n\njson_str = json.dumps(user, default=lambda o: o.__dict__)\nprint(json_str)\n```"
-        },
-        {
-          "id": "making-http-requests-using-requests",
-          "title": "Making HTTP Requests using requests",
-          "text": "The `requests` library is the de facto standard for making HTTP requests in Python. It simplifies sending GET, POST, PUT, DELETE, and other HTTP methods.\n\nExample GET request:\n```python\nimport requests\n\nresponse = requests.get('https://jsonplaceholder.typicode.com/posts/1')\nif response.status_code == 200:\n    data = response.json()  # Parse JSON response\n    print(data['title'])\nelse:\n    print('Request failed with status', response.status_code)\n```\n\nExample POST request:\n```python\npayload = {'title': 'foo', 'body': 'bar', 'userId': 1}\nresponse = requests.post('https://jsonplaceholder.typicode.com/posts', json=payload)\nprint(response.status_code)  # 201 Created\nprint(response.json())\n```\n\nAdvanced usage:\n- Set headers, cookies, timeouts.\n- Handle redirects and sessions.\n- Upload files with `files` parameter.\n- Stream large responses to save memory."
-        },
-        {
-          "id": "consuming-rest-apis",
-          "title": "Consuming REST APIs",
-          "text": "REST (Representational State Transfer) APIs provide structured access to resources using standard HTTP methods.\n\nBest practices when consuming REST APIs:\n- Read API documentation carefully.\n- Handle HTTP status codes correctly (e.g., 200 OK, 404 Not Found, 401 Unauthorized).\n- Authenticate using tokens, API keys, OAuth, etc.\n- Rate-limit requests to avoid getting blocked.\n\nExample of fetching paginated data:\n```python\nimport requests\n\nurl = 'https://api.example.com/items'\nparams = {'page': 1, 'per_page': 10}\nall_items = []\n\nwhile True:\n    response = requests.get(url, params=params)\n    data = response.json()\n    all_items.extend(data['items'])\n    if not data['has_more']:\n        break\n    params['page'] += 1\n\nprint(f'Total items fetched: {len(all_items)}')\n```\n\nUse libraries like `httpx` for async requests, retries, and connection pooling."
-        }
-      ]
-    },
-    {
-      "id": "regular-expressions",
-      "title": "Regular Expressions",
-      "sections": [
-        {
-          "id": "pattern-matching",
-          "title": "Pattern Matching",
-          "text": "Regular expressions (regex) allow flexible and powerful pattern matching in strings.\n\nPython's `re` module provides methods for matching, searching, splitting, and replacing text.\n\nCommonly used functions:\n- `re.match()` - match pattern at the beginning of string\n- `re.search()` - search pattern anywhere in string\n- `re.findall()` - find all occurrences\n- `re.sub()` - replace occurrences\n\nExample:\n```python\nimport re\n\ntext = 'Contact: john.doe@example.com'\npattern = r'[\\w.-]+@[\\w.-]+'  # Basic email pattern\nmatch = re.search(pattern, text)\nif match:\n    print('Email found:', match.group())\n```\n\nAdvanced:\n- Use groups `()` to capture parts of matches.\n- Use raw strings `r''` to avoid escape issues.\n- Use flags like `re.IGNORECASE`.\n\nExample of groups:\n```python\npattern = r'(\\w+)@(\\w+).(\\w+)'\nmatch = re.match(pattern, 'alice@example.com')\nif match:\n    print('Username:', match.group(1))\n    print('Domain:', match.group(2))\n```\n\nRemember that complex regexes can impact performance and readability."
-        },
-        {
-          "id": "common-use-cases",
-          "title": "Common Use Cases",
-          "text": "Regular expressions are used for:\n\n- Data validation (emails, phone numbers, postal codes)\n- Extracting information from text (URLs, hashtags, dates)\n- Text cleaning and preprocessing (removing whitespace, special characters)\n- Log file analysis\n- Syntax highlighting\n\nExample: Validate US phone number\n```python\npattern = r'^\\(\\d{3}\\) \\d{3}-\\d{4}$'\nprint(bool(re.match(pattern, '(123) 456-7890')))  # True\n```\n\nExample: Extract URLs from text\n```python\npattern = r'https?://[\\w./-]+'\nurls = re.findall(pattern, 'Visit https://example.com or http://test.org')\nprint(urls)\n```\n\nAlways test regexes thoroughly to avoid false positives or negatives."
-        }
-      ]
-    },
-    {
-      "id": "multithreading-and-multiprocessing",
-      "title": "Multithreading & Multiprocessing",
-      "sections": [
-        {
-          "id": "threading-module",
-          "title": "threading module",
-          "text": "The `threading` module allows concurrent execution of code using threads within the same process.\n\nThreads share memory space, which enables fast communication but requires synchronization.\n\nExample:\n```python\nimport threading\nimport time\n\ndef worker(id):\n    for i in range(3):\n        print(f'Worker {id}: {i}')\n        time.sleep(1)\n\nthreads = []\nfor i in range(2):\n    t = threading.Thread(target=worker, args=(i,))\n    threads.append(t)\n    t.start()\n\nfor t in threads:\n    t.join()\n```\n\nUse `Lock`, `RLock`, `Semaphore` for synchronizing shared data.\n\nLimitations:\n- Python's Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time, limiting CPU-bound parallelism."
-        },
-        {
-          "id": "multiprocessing-module",
-          "title": "multiprocessing module",
-          "text": "The `multiprocessing` module bypasses the GIL by creating separate processes.\n\nEach process has its own memory space, enabling true parallelism.\n\nExample:\n```python\nfrom multiprocessing import Process\nimport os\n\ndef worker(num):\n    print(f'Worker {num} process ID: {os.getpid()}')\n\nif __name__ == '__main__':\n    processes = []\n    for i in range(4):\n        p = Process(target=worker, args=(i,))\n        processes.append(p)\n        p.start()\n    for p in processes:\n        p.join()\n```\n\nCommunication between processes is done using queues, pipes, shared memory.\n\nUseful for CPU-intensive tasks like data processing, image manipulation."
-        },
-        {
-          "id": "async-vs-sync-basics",
-          "title": "Async vs Sync basics",
-          "text": "Synchronous code executes sequentially, blocking on I/O operations.\n\nAsynchronous code allows multiple operations to run concurrently by yielding control during waits.\n\nPython's `asyncio` module supports async programming.\n\nExample:\n```python\nimport asyncio\n\nasync def say_after(delay, message):\n    await asyncio.sleep(delay)\n    print(message)\n\nasync def main():\n    task1 = asyncio.create_task(say_after(1, 'Hello'))\n    task2 = asyncio.create_task(say_after(2, 'World'))\n\n    print('Tasks started')\n    await task1\n    await task2\n\nasyncio.run(main())\n```\n\nAdvantages of async:\n- Efficiently handle many I/O-bound tasks\n- Reduce context switching overhead\n\nLimitations:\n- Requires event loop\n- Not suitable for CPU-bound tasks without offloading\n\nUse async frameworks like `aiohttp` for web servers."
-        }
-      ]
-    },
-    {
-      "id": "context-managers-and-with-statement",
-      "title": "Context Managers and with Statement",
-      "sections": [
-        {
-          "id": "custom-context-managers",
-          "title": "Custom Context Managers",
-          "text": "Context managers handle setup and cleanup operations automatically.\n\nPython provides `contextlib` to simplify context manager creation.\n\nExample using `@contextmanager` decorator:\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef open_file(filename, mode):\n    f = open(filename, mode)\n    try:\n        yield f\n    finally:\n        f.close()\n\nwith open_file('example.txt', 'w') as file:\n    file.write('Hello, World!')\n```\n\nBenefits:\n- Ensures resources are released even if exceptions occur\n- Improves code readability\n\nUse cases:\n- File handling\n- Database connections\n- Locks and synchronization"
-        },
-        {
-          "id": "enter-and-exit-methods",
-          "title": "__enter__ and __exit__ methods",
-          "text": "Classes can implement `__enter__()` and `__exit__()` methods to define context management behavior.\n\nExample:\n```python\nclass ManagedFile:\n    def __init__(self, filename):\n        self.filename = filename\n\n    def __enter__(self):\n        self.file = open(self.filename, 'w')\n        return self.file\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.file.close()\n\nwith ManagedFile('hello.txt') as f:\n    f.write('Hello, world!')\n```\n\nThe `__exit__` method can handle exceptions if needed by inspecting its parameters.\n\nThis approach provides precise control over resource management."
-        }
-      ]
-    }
-  ]
-}
+//   {
+//   "id": "advanced-level",
+//   "title": "Advanced Level",
+//   "topics": [
+//     {
+//       "id": "working-with-json-and-apis",
+//       "title": "Working with JSON and APIs",
+//       "sections": [
+//         {
+//           "id": "json-parsing",
+//           "title": "JSON Parsing",
+//           "text": "JSON (JavaScript Object Notation) is a lightweight, text-based format for data interchange. It is widely used for transmitting data in web applications.\n\nIn Python, the built-in `json` module allows parsing JSON strings or files into Python objects and vice versa.\n\nExample:\n```python\nimport json\n\n# JSON string\njson_data = '{\"name\": \"Alice\", \"age\": 30, \"is_student\": false}'\n\n# Parse JSON string to Python dictionary\ndata = json.loads(json_data)\nprint(data['name'])  # Output: Alice\n\n# Serialize Python object to JSON string\njson_string = json.dumps(data, indent=4)\nprint(json_string)\n```\n\nAdvanced:\n- Use `json.load()` and `json.dump()` for reading/writing JSON files.\n- Handle exceptions like `json.JSONDecodeError` for invalid JSON.\n- Customize serialization with `default` parameter for complex objects.\n\nExample of custom serialization:\n```python\nclass User:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nuser = User('Bob', 25)\n\njson_str = json.dumps(user, default=lambda o: o.__dict__)\nprint(json_str)\n```"
+//         },
+//         {
+//           "id": "making-http-requests-using-requests",
+//           "title": "Making HTTP Requests using requests",
+//           "text": "The `requests` library is the de facto standard for making HTTP requests in Python. It simplifies sending GET, POST, PUT, DELETE, and other HTTP methods.\n\nExample GET request:\n```python\nimport requests\n\nresponse = requests.get('https://jsonplaceholder.typicode.com/posts/1')\nif response.status_code == 200:\n    data = response.json()  # Parse JSON response\n    print(data['title'])\nelse:\n    print('Request failed with status', response.status_code)\n```\n\nExample POST request:\n```python\npayload = {'title': 'foo', 'body': 'bar', 'userId': 1}\nresponse = requests.post('https://jsonplaceholder.typicode.com/posts', json=payload)\nprint(response.status_code)  # 201 Created\nprint(response.json())\n```\n\nAdvanced usage:\n- Set headers, cookies, timeouts.\n- Handle redirects and sessions.\n- Upload files with `files` parameter.\n- Stream large responses to save memory."
+//         },
+//         {
+//           "id": "consuming-rest-apis",
+//           "title": "Consuming REST APIs",
+//           "text": "REST (Representational State Transfer) APIs provide structured access to resources using standard HTTP methods.\n\nBest practices when consuming REST APIs:\n- Read API documentation carefully.\n- Handle HTTP status codes correctly (e.g., 200 OK, 404 Not Found, 401 Unauthorized).\n- Authenticate using tokens, API keys, OAuth, etc.\n- Rate-limit requests to avoid getting blocked.\n\nExample of fetching paginated data:\n```python\nimport requests\n\nurl = 'https://api.example.com/items'\nparams = {'page': 1, 'per_page': 10}\nall_items = []\n\nwhile True:\n    response = requests.get(url, params=params)\n    data = response.json()\n    all_items.extend(data['items'])\n    if not data['has_more']:\n        break\n    params['page'] += 1\n\nprint(f'Total items fetched: {len(all_items)}')\n```\n\nUse libraries like `httpx` for async requests, retries, and connection pooling."
+//         }
+//       ]
+//     },
+//     {
+//       "id": "regular-expressions",
+//       "title": "Regular Expressions",
+//       "sections": [
+//         {
+//           "id": "pattern-matching",
+//           "title": "Pattern Matching",
+//           "text": "Regular expressions (regex) allow flexible and powerful pattern matching in strings.\n\nPython's `re` module provides methods for matching, searching, splitting, and replacing text.\n\nCommonly used functions:\n- `re.match()` - match pattern at the beginning of string\n- `re.search()` - search pattern anywhere in string\n- `re.findall()` - find all occurrences\n- `re.sub()` - replace occurrences\n\nExample:\n```python\nimport re\n\ntext = 'Contact: john.doe@example.com'\npattern = r'[\\w.-]+@[\\w.-]+'  # Basic email pattern\nmatch = re.search(pattern, text)\nif match:\n    print('Email found:', match.group())\n```\n\nAdvanced:\n- Use groups `()` to capture parts of matches.\n- Use raw strings `r''` to avoid escape issues.\n- Use flags like `re.IGNORECASE`.\n\nExample of groups:\n```python\npattern = r'(\\w+)@(\\w+).(\\w+)'\nmatch = re.match(pattern, 'alice@example.com')\nif match:\n    print('Username:', match.group(1))\n    print('Domain:', match.group(2))\n```\n\nRemember that complex regexes can impact performance and readability."
+//         },
+//         {
+//           "id": "common-use-cases",
+//           "title": "Common Use Cases",
+//           "text": "Regular expressions are used for:\n\n- Data validation (emails, phone numbers, postal codes)\n- Extracting information from text (URLs, hashtags, dates)\n- Text cleaning and preprocessing (removing whitespace, special characters)\n- Log file analysis\n- Syntax highlighting\n\nExample: Validate US phone number\n```python\npattern = r'^\\(\\d{3}\\) \\d{3}-\\d{4}$'\nprint(bool(re.match(pattern, '(123) 456-7890')))  # True\n```\n\nExample: Extract URLs from text\n```python\npattern = r'https?://[\\w./-]+'\nurls = re.findall(pattern, 'Visit https://example.com or http://test.org')\nprint(urls)\n```\n\nAlways test regexes thoroughly to avoid false positives or negatives."
+//         }
+//       ]
+//     },
+//     {
+//       "id": "multithreading-and-multiprocessing",
+//       "title": "Multithreading & Multiprocessing",
+//       "sections": [
+//         {
+//           "id": "threading-module",
+//           "title": "threading module",
+//           "text": "The `threading` module allows concurrent execution of code using threads within the same process.\n\nThreads share memory space, which enables fast communication but requires synchronization.\n\nExample:\n```python\nimport threading\nimport time\n\ndef worker(id):\n    for i in range(3):\n        print(f'Worker {id}: {i}')\n        time.sleep(1)\n\nthreads = []\nfor i in range(2):\n    t = threading.Thread(target=worker, args=(i,))\n    threads.append(t)\n    t.start()\n\nfor t in threads:\n    t.join()\n```\n\nUse `Lock`, `RLock`, `Semaphore` for synchronizing shared data.\n\nLimitations:\n- Python's Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time, limiting CPU-bound parallelism."
+//         },
+//         {
+//           "id": "multiprocessing-module",
+//           "title": "multiprocessing module",
+//           "text": "The `multiprocessing` module bypasses the GIL by creating separate processes.\n\nEach process has its own memory space, enabling true parallelism.\n\nExample:\n```python\nfrom multiprocessing import Process\nimport os\n\ndef worker(num):\n    print(f'Worker {num} process ID: {os.getpid()}')\n\nif __name__ == '__main__':\n    processes = []\n    for i in range(4):\n        p = Process(target=worker, args=(i,))\n        processes.append(p)\n        p.start()\n    for p in processes:\n        p.join()\n```\n\nCommunication between processes is done using queues, pipes, shared memory.\n\nUseful for CPU-intensive tasks like data processing, image manipulation."
+//         },
+//         {
+//           "id": "async-vs-sync-basics",
+//           "title": "Async vs Sync basics",
+//           "text": "Synchronous code executes sequentially, blocking on I/O operations.\n\nAsynchronous code allows multiple operations to run concurrently by yielding control during waits.\n\nPython's `asyncio` module supports async programming.\n\nExample:\n```python\nimport asyncio\n\nasync def say_after(delay, message):\n    await asyncio.sleep(delay)\n    print(message)\n\nasync def main():\n    task1 = asyncio.create_task(say_after(1, 'Hello'))\n    task2 = asyncio.create_task(say_after(2, 'World'))\n\n    print('Tasks started')\n    await task1\n    await task2\n\nasyncio.run(main())\n```\n\nAdvantages of async:\n- Efficiently handle many I/O-bound tasks\n- Reduce context switching overhead\n\nLimitations:\n- Requires event loop\n- Not suitable for CPU-bound tasks without offloading\n\nUse async frameworks like `aiohttp` for web servers."
+//         }
+//       ]
+//     },
+//     {
+//       "id": "context-managers-and-with-statement",
+//       "title": "Context Managers and with Statement",
+//       "sections": [
+//         {
+//           "id": "custom-context-managers",
+//           "title": "Custom Context Managers",
+//           "text": "Context managers handle setup and cleanup operations automatically.\n\nPython provides `contextlib` to simplify context manager creation.\n\nExample using `@contextmanager` decorator:\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef open_file(filename, mode):\n    f = open(filename, mode)\n    try:\n        yield f\n    finally:\n        f.close()\n\nwith open_file('example.txt', 'w') as file:\n    file.write('Hello, World!')\n```\n\nBenefits:\n- Ensures resources are released even if exceptions occur\n- Improves code readability\n\nUse cases:\n- File handling\n- Database connections\n- Locks and synchronization"
+//         },
+//         {
+//           "id": "enter-and-exit-methods",
+//           "title": "__enter__ and __exit__ methods",
+//           "text": "Classes can implement `__enter__()` and `__exit__()` methods to define context management behavior.\n\nExample:\n```python\nclass ManagedFile:\n    def __init__(self, filename):\n        self.filename = filename\n\n    def __enter__(self):\n        self.file = open(self.filename, 'w')\n        return self.file\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.file.close()\n\nwith ManagedFile('hello.txt') as f:\n    f.write('Hello, world!')\n```\n\nThe `__exit__` method can handle exceptions if needed by inspecting its parameters.\n\nThis approach provides precise control over resource management."
+//         }
+//       ]
+//     }
+//   ]
+// }
 ];
