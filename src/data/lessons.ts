@@ -751,6 +751,113 @@ else:
   ]
 }
 },
+  {
+  "id": "intermediate-level",
+  "title": "Intermediate Level",
+  "description": "Explore intermediate Python topics including file handling, advanced data structures, OOP, functional programming, and more.",
+  "concept": "python-intermediate",
+  "difficulty": "intermediate",
+  "estimatedTime": "2 hours",
+  "sections": [
+    {
+      "id": "file-handling",
+      "type": "ai_explanation",
+      "title": "File Handling",
+      "text": "Python’s file handling allows interaction with files using built-in functions.\n\nThe `open()` function returns a file object; modes define read/write behavior:\n- `'r'`: read (default, error if file not found)\n- `'w'`: write (creates or truncates)\n- `'a'`: append (writes at end)\n- `'x'`: create exclusive file, fails if exists\n- `'b'`: binary mode\n- `'t'`: text mode (default)\n\nExample:\n```python\n# Writing to a file\nwith open('example.txt', 'w') as file:\n    file.write('Hello World!\\n')\n\n# Reading from a file\nwith open('example.txt', 'r') as file:\n    content = file.read()\n    print(content)\n```\n\nReading methods:\n- `read()`: read entire file\n- `readline()`: read one line at a time\n- `readlines()`: read all lines into a list\n\nAlways use `with` statement to ensure file is closed properly, even if errors occur."
+    },
+    {
+      "id": "working-with-text-csv",
+      "type": "ai_explanation",
+      "title": "Working with Text and CSV Files",
+      "text": "Working with text files involves reading/writing strings.\n\nCSV files store tabular data and are handled with the `csv` module.\n\nExample:\n```python\nimport csv\n\n# Reading CSV file\nwith open('data.csv', newline='') as csvfile:\n    reader = csv.reader(csvfile, delimiter=',')\n    for row in reader:\n        print(row)\n\n# Writing CSV file\nwith open('output.csv', 'w', newline='') as csvfile:\n    writer = csv.writer(csvfile)\n    writer.writerow(['Name', 'Age', 'Country'])\n    writer.writerow(['Alice', 30, 'USA'])\n```\n\nAdvanced features include:\n- Handling different delimiters (e.g., tabs)\n- Using `csv.DictReader` and `csv.DictWriter` for dictionary-based access\n- Managing quoting and escape characters for complex CSV files"
+    },
+    {
+      "id": "context-managers",
+      "type": "ai_explanation",
+      "title": "Context Managers (with statement)",
+      "text": "Context managers simplify resource management (files, network connections).\n\nThe `with` statement guarantees setup and cleanup.\n\nExample:\n```python\nwith open('file.txt', 'r') as f:\n    data = f.read()\n# File closed automatically\n```\n\nCreating custom context managers:\n\nUsing `contextlib`:\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef managed_file(filename):\n    f = open(filename, 'w')\n    try:\n        yield f\n    finally:\n        f.close()\n\nwith managed_file('hello.txt') as f:\n    f.write('Hello World')\n```\n\nOr using class with `__enter__` and `__exit__`:\n```python\nclass ManagedFile:\n    def __init__(self, filename):\n        self.filename = filename\n    def __enter__(self):\n        self.file = open(self.filename, 'w')\n        return self.file\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.file.close()\n```\n\nProper error handling inside `__exit__` allows handling exceptions gracefully."
+    },
+    {
+      "id": "list-comprehensions",
+      "type": "ai_explanation",
+      "title": "List Comprehensions",
+      "text": "List comprehensions allow creation of lists in one concise expression.\n\nSyntax: `[expression for item in iterable if condition]`\n\nExamples:\n```python\n# Squares of numbers 0-9\nsquares = [x**2 for x in range(10)]\n\n# Even squares\neven_squares = [x**2 for x in range(10) if x % 2 == 0]\n\n# Flatten a nested list\nmatrix = [[1,2,3], [4,5,6]]\nflat = [num for row in matrix for num in row]\n```\n\nBenefits:\n- Cleaner, shorter code\n- Faster execution compared to loops\n\nCaution:\n- Avoid overly complex expressions; break into functions if needed."
+    },
+    {
+      "id": "dictionary-comprehensions",
+      "type": "ai_explanation",
+      "title": "Dictionary Comprehensions",
+      "text": "Similar to list comprehensions but build dictionaries.\n\nSyntax: `{key_expr: value_expr for item in iterable if condition}`\n\nExample:\n```python\n# Map numbers to their squares\nsquare_dict = {x: x**2 for x in range(6)}\n\n# Filter with condition\nfiltered_dict = {x: x**2 for x in range(10) if x % 2 == 0}\n```\n\nUseful to transform or filter existing dictionaries or iterables into new dictionaries."
+    },
+    {
+      "id": "nested-data-structures",
+      "type": "ai_explanation",
+      "title": "Nested Data Structures",
+      "text": "Complex data often requires nested containers.\n\nExamples:\n```python\n# List of dictionaries\ndata = [\n    {'name': 'Alice', 'scores': [90, 85, 88]},\n    {'name': 'Bob', 'scores': [72, 80, 79]}\n]\n\n# Dictionary with list values\ngrades = {'math': [90, 80], 'science': [88, 84]}\n```\n\nAccessing nested data:\n```python\nprint(data[0]['scores'][1])  # 85\nprint(grades['science'][0])  # 88\n```\n\nNested comprehensions can be used for transformation:\n```python\nall_scores = [score for student in data for score in student['scores']]\n```\n\nUnderstanding nesting is crucial for data manipulation and JSON handling."
+    },
+    {
+      "id": "classes-and-objects",
+      "type": "ai_explanation",
+      "title": "Classes and Objects",
+      "text": "OOP centers around classes (templates) and objects (instances).\n\nClasses bundle data (attributes) and behaviors (methods).\n\nExample:\n```python\nclass Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    def greet(self):\n        print(f'Hello, my name is {self.name}')\n\np1 = Person('Alice', 30)\np1.greet()\n```\n\nOOP promotes encapsulation, modularity, and code reuse."
+    },
+    {
+      "id": "init-and-self",
+      "type": "ai_explanation",
+      "title": "__init__ and self",
+      "text": "`__init__` is a special method called when a new object is created. It initializes instance attributes.\n\n`self` refers to the current instance, allowing attribute access.\n\nExample:\n```python\nclass Car:\n    def __init__(self, brand, model):\n        self.brand = brand\n        self.model = model\n    def info(self):\n        print(f'{self.brand} {self.model}')\n\ncar = Car('Toyota', 'Corolla')\ncar.info()\n```\n\nWithout `self`, Python won’t know which instance’s attribute to use."
+    },
+    {
+      "id": "methods-and-attributes",
+      "type": "ai_explanation",
+      "title": "Methods and Attributes",
+      "text": "Attributes hold data; methods define behaviors.\n\nAttributes can be:\n- Instance attributes (unique per object)\n- Class attributes (shared across all instances)\n\nExample:\n```python\nclass Employee:\n    company = 'ABC Corp'  # class attribute\n\n    def __init__(self, name, salary):\n        self.name = name  # instance attribute\n        self.salary = salary\n\n    def display(self):\n        print(f'{self.name} works at {self.company} earning {self.salary}')\n\nemp = Employee('John', 50000)\nemp.display()\n```\n\nMethods can access attributes and perform operations."
+    },
+    {
+      "id": "inheritance",
+      "type": "ai_explanation",
+      "title": "Inheritance",
+      "text": "Inheritance lets one class derive from another, reusing code.\n\nThe derived class inherits attributes and methods and can override or extend them.\n\nExample:\n```python\nclass Animal:\n    def speak(self):\n        print('Animal sound')\n\nclass Dog(Animal):\n    def speak(self):\n        print('Bark')\n\ndog = Dog()\ndog.speak()  # Bark\n```\n\nSupports hierarchical relationships and polymorphism."
+    },
+    {
+      "id": "encapsulation-and-polymorphism",
+      "type": "ai_explanation",
+      "title": "Encapsulation and Polymorphism",
+      "text": "Encapsulation protects data by restricting access.\n\nConventionally, prefix attribute names with `_` or `__` to indicate privacy.\n\nPolymorphism means different classes can be treated the same through common interfaces.\n\nExample:\n```python\nclass Bird:\n    def fly(self):\n        print('Bird flying')\n\nclass Plane:\n    def fly(self):\n        print('Plane flying')\n\nfor obj in [Bird(), Plane()]:\n    obj.fly()  # Both can fly, different implementations\n```\n\nPromotes flexible and maintainable code design."
+    },
+    {
+      "id": "anonymous-functions",
+      "type": "ai_explanation",
+      "title": "Anonymous Functions",
+      "text": "Lambda functions are unnamed, single-expression functions.\n\nSyntax: `lambda arguments: expression`\n\nExample:\n```python\nadd = lambda x, y: x + y\nprint(add(3, 4))  # 7\n```\n\nOften used as short inline functions, especially with higher-order functions."
+    },
+    {
+      "id": "functional-programming-in-python",
+      "type": "ai_explanation",
+      "title": "Functional Programming in Python",
+      "text": "Python supports functional programming features like `map()`, `filter()`, and `reduce()`.\n\n- `map(func, iterable)`: applies `func` to each element.\n- `filter(func, iterable)`: filters elements where `func` returns True.\n- `reduce(func, iterable)`: applies `func` cumulatively (from `functools`).\n\nExample:\n```python\nfrom functools import reduce\n\nnums = [1, 2, 3, 4, 5]\nsquares = list(map(lambda x: x**2, nums))\nevens = list(filter(lambda x: x % 2 == 0, nums))\nsum_all = reduce(lambda x, y: x + y, nums)\n\nprint(squares)  # [1, 4, 9, 16, 25]\nprint(evens)    # [2, 4]\nprint(sum_all)  # 15\n```\n\nUseful for concise data transformations."
+    },
+    {
+      "id": "iter-next",
+      "type": "ai_explanation",
+      "title": "__iter__ and __next__",
+      "text": "Iterators implement `__iter__()` (returns the iterator object) and `__next__()` (returns the next item).\n\nExample:\n```python\nclass Counter:\n    def __init__(self, low, high):\n        self.current = low\n        self.high = high\n    def __iter__(self):\n        return self\n    def __next__(self):\n        if self.current > self.high:\n            raise StopIteration\n        else:\n            self.current += 1\n            return self.current - 1\n\nfor num in Counter(1, 3):\n    print(num)  # 1 2 3\n```\n\nEnables custom iteration behavior."
+    },
+    {
+      "id": "yield-keyword",
+      "type": "ai_explanation",
+      "title": "yield Keyword",
+      "text": "`yield` creates a generator function, which produces a sequence of values lazily.\n\nExample:\n```python\ndef countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nfor i in countdown(5):\n    print(i)\n```\n\nGenerators save memory by generating items on demand."
+    },
+    {
+      "id": "generator-expressions",
+      "type": "ai_explanation",
+      "title": "Generator Expressions",
+      "text": "Generator expressions are like list comprehensions but use `()` and produce iterators instead of lists.\n\nExample:\n```python\ngen = (x**2 for x in range(5))\nprint(next(gen))  # 0\nprint(list(gen))  # [1, 4, 9, 16]\n```\n\nThey are memory efficient for large data sets since values are generated on demand rather than stored in memory."
+    }
+  ]
+}
+
 //   {
 //   "id": "intermediate-level",
 //   "title": "Intermediate Level",
