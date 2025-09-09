@@ -698,7 +698,7 @@ export const lessons: Lesson[] = [
     {
       id: 'intro',
       type: 'ai_explanation',
-      text: `What is Python? Installing Python, using an IDE, and writing your first program using print(). SHIT`,
+      text: `What is Python? Installing Python, using an IDE, and writing your first program using print().`,
     },
     {
       id: 'variables-datatypes',
