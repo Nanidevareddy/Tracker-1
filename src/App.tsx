@@ -57,7 +57,7 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <Header currentLesson={currentLesson?.title} />
 
-      <div className="flex min-h-[calc(100vh-4rem)]">
+      <div className="flex h-[calc(100vh-4rem)] overflow-hidden">
         {/* Sidebar toggle for mobile */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -68,14 +68,16 @@ function App() {
 
         {/* Sidebar */}
         <Sidebar
-          currentLessonId={currentLessonId}
-          onLessonChange={handleLessonChange}
-          isOpen={sidebarOpen}
-          onToggle={() => setSidebarOpen(!sidebarOpen)}
-        />
+  currentLessonId={currentLessonId}
+  onLessonChange={handleLessonChange}
+  isOpen={sidebarOpen}
+  onToggle={() => setSidebarOpen(!sidebarOpen)}
+  className="w-80 h-full overflow-y-auto"
+ />
+
 
         {/* ✅ Main content - fixed: removed `lg:ml-80` */}
-        <main className="flex-1 w-full">
+        <main className="flex-1 w-full h-full overflow-y-auto">
           <div className="w-full max-w-none mx-auto p-4 lg:p-8 pb-24">
             {currentLesson && currentSection ? (
               <div className="space-y-8">
