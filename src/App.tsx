@@ -74,6 +74,14 @@ function App() {
   onToggle={() => setSidebarOpen(!sidebarOpen)}
   className="w-80 h-full overflow-y-auto"
  />
+        <iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/UrsmFxElp5k"
+  frameBorder="0"
+  allowFullScreen
+  title="Intro Video"
+/>
 
 
         {/* ✅ Main content - fixed: removed `lg:ml-80` */}
