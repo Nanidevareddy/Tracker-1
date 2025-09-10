@@ -37,28 +37,21 @@ export const lessons: Lesson[] = [
         "id": "what-is-python",
         "type": "ai_explanation",
         "title": "What is Python?",
-        "text": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.\n\nPython's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.\n\nKey features of Python include:\n- Easy to learn and use: Python has a simple syntax that mirrors natural language.\n- Interpreted language: Python code runs line by line, which makes debugging easier.\n- Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.\n- Large standard library: It includes tools for everything from file handling to networking.\n- Extensive community support: Python has thousands of third-party libraries and frameworks.\n\nIn summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike."
+        "text": "<p>Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.</p><p>Python's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.</p><p>Key features of Python include:</p><ul><li>Easy to learn and use: Python has a simple syntax that mirrors natural language.</li><li>Interpreted language: Python code runs line by line, which makes debugging easier.</li><li>Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.</li><li>Large standard library: It includes tools for everything from file handling to networking.</li><li>Extensive community support: Python has thousands of third-party libraries and frameworks.</li></ul><p>In summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike.</p>"
 
       },
-      {
-  "id": "what-is-python",
-  "type": "ai_explanation",
-  "title": "What is Python?",
-  "text": "Python is a high-level language. Here is an intro video:<br><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UrsmFxElp5k\" frameborder=\"0\" allowfullscreen></iframe>"
-},
-      {
-  "id": "what-is-python",
-  "type": "ai_explanation",
-  "title": "What is Python?",
-  "text": "Python is a high-level language. Here is an intro video:<br><a href=\"https://www.youtube.com/embed/UrsmFxElp5k\" target=\"_blank\" class=\"text-blue-600 underline\">▶ Watch Intro to Python</a>"
-},
-
-        
       {
         "id": "setup-ides",
         "type": "ai_explanation",
         "title": "Setting Up IDEs (VSCode, PyCharm, Jupyter)",
-        "text": "An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:\n\n1. Visual Studio Code (VSCode):\n  - VSCode is a lightweight, free, open-source code editor developed by Microsoft.\n  - To set up Python in VSCode: \n    - Download and install VSCode from code.visualstudio.com.\n    - Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.\n    - VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.\n    - You can run Python scripts directly within the editor.\n\n2. PyCharm:\n  - PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.\n  - Download the Community (free) or Professional version from jetbrains.com/pycharm.\n  - PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.\n  - After installation, create a new project and start coding.\n\n3. Jupyter Notebook:\n  - Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.\n  - Especially popular in data science and machine learning communities.\n  - To install Jupyter: \n    - Use the command pip install notebook.\n    - Run jupyter notebook in your terminal to open the notebook interface in your web browser.\n  - Jupyter is great for interactive coding and exploring data step-by-step.\n\nEach IDE has its own strengths, and you can choose one based on your needs and preferences."
+        "text": "<p>An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:</p><ol><li>Visual Studio Code (VSCode):
+  <ul><li>VSCode is a lightweight, free, open-source code editor developed by Microsoft.</li><li>To set up Python in VSCode:</li><li>Download and install VSCode from code.visualstudio.com.</li><li>Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.</li><li>VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.</li><li>You can run Python scripts directly within the editor.</li></ul>
+</li><li>PyCharm:
+  <ul><li>PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.</li><li>Download the Community (free) or Professional version from jetbrains.com/pycharm.</li><li>PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.</li><li>After installation, create a new project and start coding.</li></ul>
+</li><li>Jupyter Notebook:
+  <ul><li>Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.</li><li>Especially popular in data science and machine learning communities.</li><li>To install Jupyter:</li><li>Use the command pip install notebook.</li><li>Run jupyter notebook in your terminal to open the notebook interface in your web browser.</li><li>Jupyter is great for interactive coding and exploring data step-by-step.</li></ul>
+</li></ol><p>Each IDE has its own strengths, and you can choose one based on your needs and preferences.</p>"
+
       },
       {
         "id": "first-python-program",
