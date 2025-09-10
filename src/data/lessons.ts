@@ -34,31 +34,94 @@ export const lessons: Lesson[] = [
     "estimatedTime": "30 min",
     "sections": [
       {
-        "id": "what-is-python",
-        "type": "ai_explanation",
-        "title": "What is Python?",
-        "text": "<p>Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.</p><p>Python's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.</p><p>Key features of Python include:</p><ul><li>Easy to learn and use: Python has a simple syntax that mirrors natural language.</li><li>Interpreted language: Python code runs line by line, which makes debugging easier.</li><li>Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.</li><li>Large standard library: It includes tools for everything from file handling to networking.</li><li>Extensive community support: Python has thousands of third-party libraries and frameworks.</li></ul><p>In summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike.</p>"
-
-      },
-      {
-        "id": "setup-ides",
-        "type": "ai_explanation",
-        "title": "Setting Up IDEs (VSCode, PyCharm, Jupyter)",
-        "text": "<p>An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:</p><ol><li>Visual Studio Code (VSCode):
-  <ul><li>VSCode is a lightweight, free, open-source code editor developed by Microsoft.</li><li>To set up Python in VSCode:</li><li>Download and install VSCode from code.visualstudio.com.</li><li>Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.</li><li>VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.</li><li>You can run Python scripts directly within the editor.</li></ul>
-</li><li>PyCharm:
-  <ul><li>PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.</li><li>Download the Community (free) or Professional version from jetbrains.com/pycharm.</li><li>PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.</li><li>After installation, create a new project and start coding.</li></ul>
-</li><li>Jupyter Notebook:
-  <ul><li>Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.</li><li>Especially popular in data science and machine learning communities.</li><li>To install Jupyter:</li><li>Use the command pip install notebook.</li><li>Run jupyter notebook in your terminal to open the notebook interface in your web browser.</li><li>Jupyter is great for interactive coding and exploring data step-by-step.</li></ul>
-</li></ol><p>Each IDE has its own strengths, and you can choose one based on your needs and preferences.</p>"
-
-      },
-      {
-        "id": "first-python-program",
-        "type": "ai_explanation",
-        "title": "First Python Program: print(\"Hello, World!\")",
-        "text": "Writing your first program is an exciting step! In Python, the classic first program is to display the phrase \"Hello, World!\" on the screen.\n\nHere’s the code:\nprint(\"Hello, World!\")\n\nExplanation:\n- print() is a built-in Python function that outputs text or other data to the screen.\n- The text inside the parentheses and quotes is called a string.\n- When you run this program, Python executes the print function and displays the message.\n\nHow to run the program:\n1. Open your chosen IDE or a simple text editor.\n2. Create a new file and name it hello.py (Python files end with .py).\n3. Type the code: print(\"Hello, World!\").\n4. Save the file.\n5. Run the program:\n  - In a terminal or command prompt, navigate to the folder containing the file.\n  - Type python hello.py or python3 hello.py and press Enter.\n\nYou should see the output:\nHello, World!\n\nCongratulations! You’ve just written and executed your first Python program."
-      }
+    id: "what-is-python",
+    type: "ai_explanation",
+    title: "What is Python?",
+    text: `
+      <p>Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.</p>
+      <p>Python's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.</p>
+      <p>Key features of Python include:</p>
+      <ul>
+        <li>Easy to learn and use: Python has a simple syntax that mirrors natural language.</li>
+        <li>Interpreted language: Python code runs line by line, which makes debugging easier.</li>
+        <li>Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.</li>
+        <li>Large standard library: It includes tools for everything from file handling to networking.</li>
+        <li>Extensive community support: Python has thousands of third-party libraries and frameworks.</li>
+      </ul>
+      <p>In summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike.</p>
+    `,
+  },
+  {
+    id: "setup-ides",
+    type: "ai_explanation",
+    title: "Setting Up IDEs (VSCode, PyCharm, Jupyter)",
+    text: `
+      <p>An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:</p>
+      <ol>
+        <li>Visual Studio Code (VSCode):
+          <ul>
+            <li>VSCode is a lightweight, free, open-source code editor developed by Microsoft.</li>
+            <li>To set up Python in VSCode:</li>
+            <li>Download and install VSCode from <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>.</li>
+            <li>Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.</li>
+            <li>VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.</li>
+            <li>You can run Python scripts directly within the editor.</li>
+          </ul>
+        </li>
+        <li>PyCharm:
+          <ul>
+            <li>PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.</li>
+            <li>Download the Community (free) or Professional version from <a href="https://jetbrains.com/pycharm" target="_blank" rel="noopener noreferrer">jetbrains.com/pycharm</a>.</li>
+            <li>PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.</li>
+            <li>After installation, create a new project and start coding.</li>
+          </ul>
+        </li>
+        <li>Jupyter Notebook:
+          <ul>
+            <li>Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.</li>
+            <li>Especially popular in data science and machine learning communities.</li>
+            <li>To install Jupyter:</li>
+            <li>Use the command <code>pip install notebook</code>.</li>
+            <li>Run <code>jupyter notebook</code> in your terminal to open the notebook interface in your web browser.</li>
+            <li>Jupyter is great for interactive coding and exploring data step-by-step.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Each IDE has its own strengths, and you can choose one based on your needs and preferences.</p>
+    `,
+  },
+  {
+    id: "first-python-program",
+    type: "ai_explanation",
+    title: 'First Python Program: print("Hello, World!")',
+    text: `
+      <p>Writing your first program is an exciting step! In Python, the classic first program is to display the phrase <code>"Hello, World!"</code> on the screen.</p>
+      <p>Here’s the code:</p>
+      <pre><code>print("Hello, World!")</code></pre>
+      <p>Explanation:</p>
+      <ul>
+        <li><code>print()</code> is a built-in Python function that outputs text or other data to the screen.</li>
+        <li>The text inside the parentheses and quotes is called a string.</li>
+        <li>When you run this program, Python executes the print function and displays the message.</li>
+      </ul>
+      <p>How to run the program:</p>
+      <ol>
+        <li>Open your chosen IDE or a simple text editor.</li>
+        <li>Create a new file and name it <code>hello.py</code> (Python files end with .py).</li>
+        <li>Type the code: <code>print("Hello, World!")</code>.</li>
+        <li>Save the file.</li>
+        <li>Run the program:
+          <ul>
+            <li>In a terminal or command prompt, navigate to the folder containing the file.</li>
+            <li>Type <code>python hello.py</code> or <code>python3 hello.py</code> and press Enter.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>You should see the output:</p>
+      <pre><code>Hello, World!</code></pre>
+      <p>Congratulations! You’ve just written and executed your first Python program.</p>
+    `,
+  }
     ]
   },
 {
