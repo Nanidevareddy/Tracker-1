@@ -26,116 +26,40 @@ export interface Lesson {
 
 export const lessons: Lesson[] = [
   {
-  id: 'intro-to-python',
-  title: 'Introduction to Python',
-  description: 'Learn what Python is, how to install it, set up IDEs, and write your first program.',
-  concept: 'python-basics',
-  difficulty: 'beginner',
-  estimatedTime: '30 min',
-  sections: [
-    {
-      id: 'what-is-python',
-      type: 'ai_explanation',
-      title: 'What is Python?',
-      text: `Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.
-
-Python's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.
-
-Key features of Python include:
-- Easy to learn and use: Python has a simple syntax that mirrors natural language.
-- Interpreted language: Python code runs line by line, which makes debugging easier.
-- Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.
-- Large standard library: It includes tools for everything from file handling to networking.
-- Extensive community support: Python has thousands of third-party libraries and frameworks.
-
-In summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike.`
-    },
-    {
-      id: 'install-python',
-      type: 'ai_explanation',
-      title: 'Installing Python',
-      text: `Before you start coding in Python, you need to install the Python interpreter on your computer. Here's a step-by-step guide for installing Python:
-
-1. Download Python:
-  - Visit the official Python website at python.org.
-  - The website will usually detect your operating system and suggest the best version for you. As of now, Python 3.x is the standard (avoid Python 2, as it's outdated).
-
-2. Run the Installer:
-  - Open the downloaded installer.
-  - On Windows, make sure to check the box "Add Python 3.x to PATH" before clicking "Install Now." This step allows you to run Python from the command line.
-  - Follow the installation prompts.
-
-3. Verify Installation:
-  - Open your command prompt (Windows) or terminal (macOS/Linux).
-  - Type python --version or python3 --version.
-  - If Python is installed correctly, it will display the installed version number.
-
-4. Optional - Install pip:
-  - pip is the package installer for Python and usually comes pre-installed.
-  - To check if pip is installed, type pip --version in your command prompt or terminal.
-  - Pip allows you to install external libraries easily.
-
-Once installed, you are ready to write and execute Python programs!`
-    },
-    {
-      id: 'setup-ides',
-      type: 'ai_explanation',
-      title: 'Setting Up IDEs (VSCode, PyCharm, Jupyter)',
-      text: `An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:
-
-1. Visual Studio Code (VSCode):
-  - VSCode is a lightweight, free, open-source code editor developed by Microsoft.
-  - To set up Python in VSCode: 
-    - Download and install VSCode from code.visualstudio.com.
-    - Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.
-    - VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.
-    - You can run Python scripts directly within the editor.
-
-2. PyCharm:
-  - PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.
-  - Download the Community (free) or Professional version from jetbrains.com/pycharm.
-  - PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.
-  - After installation, create a new project and start coding.
-
-3. Jupyter Notebook:
-  - Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.
-  - Especially popular in data science and machine learning communities.
-  - To install Jupyter: 
-    - Use the command pip install notebook.
-    - Run jupyter notebook in your terminal to open the notebook interface in your web browser.
-  - Jupyter is great for interactive coding and exploring data step-by-step.
-
-Each IDE has its own strengths, and you can choose one based on your needs and preferences.`
-    },
-    {
-      id: 'first-python-program',
-      type: 'ai_explanation',
-      title: 'First Python Program: print("Hello, World!")',
-      text: `Writing your first program is an exciting step! In Python, the classic first program is to display the phrase "Hello, World!" on the screen.
-
-Here’s the code:
-print("Hello, World!")
-
-Explanation:
-- print() is a built-in Python function that outputs text or other data to the screen.
-- The text inside the parentheses and quotes is called a string.
-- When you run this program, Python executes the print function and displays the message.
-
-How to run the program:
-1. Open your chosen IDE or a simple text editor.
-2. Create a new file and name it hello.py (Python files end with .py).
-3. Type the code: print("Hello, World!").
-4. Save the file.
-5. Run the program:
-  - In a terminal or command prompt, navigate to the folder containing the file.
-  - Type python hello.py or python3 hello.py and press Enter.
-
-You should see the output:
-Hello, World!
-
-Congratulations! You’ve just written and executed your first Python program.`
-    }
-  ]
+    "id": "intro-to-python",
+    "title": "Introduction to Python",
+    "description": "Learn what Python is, how to install it, set up IDEs, and write your first program.",
+    "concept": "python-basics",
+    "difficulty": "beginner",
+    "estimatedTime": "30 min",
+    "sections": [
+      {
+        "id": "what-is-python",
+        "type": "ai_explanation",
+        "title": "What is Python?",
+        "text": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.\n\nPython's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.\n\nKey features of Python include:\n- Easy to learn and use: Python has a simple syntax that mirrors natural language.\n- Interpreted language: Python code runs line by line, which makes debugging easier.\n- Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.\n- Large standard library: It includes tools for everything from file handling to networking.\n- Extensive community support: Python has thousands of third-party libraries and frameworks.\n\nIn summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike."
+      },
+      {
+        "id": "install-python",
+        "type": "ai_explanation",
+        "title": "Installing Python",
+        "text": "Before you start coding in Python, you need to install the Python interpreter on your computer. Here's a step-by-step guide for installing Python:\n\n1. Download Python:\n  - Visit the official Python website at python.org.\n  - The website will usually detect your operating system and suggest the best version for you. As of now, Python 3.x is the standard (avoid Python 2, as it's outdated).\n\n2. Run the Installer:\n  - Open the downloaded installer.\n  - On Windows, make sure to check the box \"Add Python 3.x to PATH\" before clicking \"Install Now.\" This step allows you to run Python from the command line.\n  - Follow the installation prompts.\n\n3. Verify Installation:\n  - Open your command prompt (Windows) or terminal (macOS/Linux).\n  - Type python --version or python3 --version.\n  - If Python is installed correctly, it will display the installed version number.\n\n4. Optional - Install pip:\n  - pip is the package installer for Python and usually comes pre-installed.\n  - To check if pip is installed, type pip --version in your command prompt or terminal.\n  - Pip allows you to install external libraries easily.\n\nOnce installed, you are ready to write and execute Python programs!"
+      },
+      {
+        "id": "setup-ides",
+        "type": "ai_explanation",
+        "title": "Setting Up IDEs (VSCode, PyCharm, Jupyter)",
+        "text": "An Integrated Development Environment (IDE) helps programmers write, test, and debug code efficiently. Here are three popular IDEs used for Python programming:\n\n1. Visual Studio Code (VSCode):\n  - VSCode is a lightweight, free, open-source code editor developed by Microsoft.\n  - To set up Python in VSCode: \n    - Download and install VSCode from code.visualstudio.com.\n    - Open VSCode and install the Python extension by Microsoft from the Extensions marketplace.\n    - VSCode provides features like syntax highlighting, code completion, debugging, and integrated terminal.\n    - You can run Python scripts directly within the editor.\n\n2. PyCharm:\n  - PyCharm is a powerful IDE developed by JetBrains, designed specifically for Python.\n  - Download the Community (free) or Professional version from jetbrains.com/pycharm.\n  - PyCharm offers advanced features like smart code navigation, refactoring, integrated testing, and version control.\n  - After installation, create a new project and start coding.\n\n3. Jupyter Notebook:\n  - Jupyter Notebook is an open-source web application that allows you to create and share live code, equations, visualizations, and narrative text.\n  - Especially popular in data science and machine learning communities.\n  - To install Jupyter: \n    - Use the command pip install notebook.\n    - Run jupyter notebook in your terminal to open the notebook interface in your web browser.\n  - Jupyter is great for interactive coding and exploring data step-by-step.\n\nEach IDE has its own strengths, and you can choose one based on your needs and preferences."
+      },
+      {
+        "id": "first-python-program",
+        "type": "ai_explanation",
+        "title": "First Python Program: print(\"Hello, World!\")",
+        "text": "Writing your first program is an exciting step! In Python, the classic first program is to display the phrase \"Hello, World!\" on the screen.\n\nHere’s the code:\nprint(\"Hello, World!\")\n\nExplanation:\n- print() is a built-in Python function that outputs text or other data to the screen.\n- The text inside the parentheses and quotes is called a string.\n- When you run this program, Python executes the print function and displays the message.\n\nHow to run the program:\n1. Open your chosen IDE or a simple text editor.\n2. Create a new file and name it hello.py (Python files end with .py).\n3. Type the code: print(\"Hello, World!\").\n4. Save the file.\n5. Run the program:\n  - In a terminal or command prompt, navigate to the folder containing the file.\n  - Type python hello.py or python3 hello.py and press Enter.\n\nYou should see the output:\nHello, World!\n\nCongratulations! You’ve just written and executed your first Python program."
+      }
+    ]
+  }
+]
 } ,
 
 {
