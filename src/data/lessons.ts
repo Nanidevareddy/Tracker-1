@@ -45,7 +45,7 @@ export const lessons: Lesson[] = [
   "type": "ai_explanation",
   "title": "What is Python?",
   "text": "Python is a high-level language. Here is an intro video:<br><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UrsmFxElp5k\" frameborder=\"0\" allowfullscreen></iframe>"
-}
+},
       {
   "id": "what-is-python",
   "type": "ai_explanation",
