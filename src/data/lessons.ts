@@ -58,8 +58,41 @@ export const lessons: Lesson[] = [
         "text": "Writing your first program is an exciting step! In Python, the classic first program is to display the phrase \"Hello, World!\" on the screen.\n\nHere’s the code:\nprint(\"Hello, World!\")\n\nExplanation:\n- print() is a built-in Python function that outputs text or other data to the screen.\n- The text inside the parentheses and quotes is called a string.\n- When you run this program, Python executes the print function and displays the message.\n\nHow to run the program:\n1. Open your chosen IDE or a simple text editor.\n2. Create a new file and name it hello.py (Python files end with .py).\n3. Type the code: print(\"Hello, World!\").\n4. Save the file.\n5. Run the program:\n  - In a terminal or command prompt, navigate to the folder containing the file.\n  - Type python hello.py or python3 hello.py and press Enter.\n\nYou should see the output:\nHello, World!\n\nCongratulations! You’ve just written and executed your first Python program."
       }
     ]
-  }
-]
+  },
+  {
+    "id": "python-basics",
+    "title": "Introduction to Python Programming",
+    "description": "Learn the basics of Python including comments, variables, input/output, and type casting.",
+    "concept": "python-basics",
+    "difficulty": "beginner",
+    "estimatedTime": "45 min",
+    "sections": [
+      {
+        "id": "comments",
+        "type": "ai_explanation",
+        "title": "Comments",
+        "text": "In programming, comments are lines in your code that are not executed. They are used to explain what the code does, making it easier for others (and yourself) to understand when revisiting the code later. Comments help keep your code clean, organized, and maintainable.\n\nHow to write comments in Python:\n- Single-line comments: Start the line with a hash symbol #. Everything after # on that line is ignored by Python.\nExample:\n# This is a single-line comment explaining the code below\nprint(\"Hello, World!\")  # This comment is after a code statement\n\n- Multi-line comments: Python doesn’t have a special syntax for multi-line comments, but you can use triple quotes (''' or \"\"\") to create block comments or docstrings. These are technically treated as multi-line strings and are often used for documentation.\n\nExample:\n'''\nThis is a multi-line comment.\nIt can span several lines.\nUseful for explaining complex parts.\n'''\nprint(\"Hello\")\n\nWhy use comments?\n- To clarify the purpose of code sections.\n- To temporarily disable code during debugging.\n- To provide documentation within your code.\n\nGood commenting practice improves code readability, especially in larger projects."
+      },
+      {
+        "id": "variables-and-data-types",
+        "type": "ai_explanation",
+        "title": "Variables and Data Types",
+        "text": "Variables are like containers that store data values in a program. In Python, you don’t need to declare a variable type explicitly; Python figures it out automatically based on the value you assign.\n\nHow to create variables:\nage = 25\nname = \"Alice\"\npi = 3.14159\nis_student = True\n\nHere, age, name, pi, and is_student are variables holding different types of data.\n\nCommon Data Types in Python:\n- Integers (int): Whole numbers without decimals.\n- Floating-point numbers (float): Numbers with decimals.\n- Strings (str): Text enclosed in quotes.\n- Boolean (bool): True or False values.\n- Other types: Lists, tuples, dictionaries, sets (covered in advanced topics).\n\nVariable naming rules:\n- Must start with a letter (a-z, A-Z) or underscore (_).\n- Can contain letters, numbers, and underscores.\n- Case-sensitive (age and Age are different).\n- Avoid Python reserved keywords (like if, for, while).\n\nVariables store information so your program can manipulate and use that data as needed."
+      },
+      {
+        "id": "input-output",
+        "type": "ai_explanation",
+        "title": "Input & Output",
+        "text": "Programs often interact with users by receiving input and displaying output.\n\nOutput using print() function:\nThe print() function outputs data to the screen.\n\nExamples:\nprint(\"Welcome to Python!\")\nprint(42)\n\nYou can print multiple items separated by commas:\nname = \"John\"\nage = 30\nprint(\"Name:\", name, \"Age:\", age)\n\nInput using input() function:\nTo take user input, Python uses the input() function, which waits for the user to type something and press Enter.\n\nExample:\nname = input(\"Enter your name: \")\nprint(\"Hello, \" + name + \"!\")\n\n- The text inside input() is a prompt message shown to the user.\n- The input() function always returns data as a string, even if the user enters numbers."
+      },
+      {
+        "id": "type-casting",
+        "type": "ai_explanation",
+        "title": "Type Casting and Data Types",
+        "text": "Since user input from input() is always a string, sometimes you need to convert it to another data type, like an integer or float, for calculations.\n\nCommon type casting functions:\n- int(): Converts a string or float to an integer.\n- float(): Converts a string or integer to a floating-point number.\n- str(): Converts a number or other data types to a string.\n\nExamples:\nage = input(\"Enter your age: \")  # User inputs '25', age is a string\nage = int(age)  # Convert the string to an integer\nprint(\"Next year, you will be\", age + 1)\n\nIf you don’t convert, doing arithmetic on a string causes errors:\nage = input(\"Enter your age: \")\nprint(age + 1)  # This will give an error because age is a string\n\nHandling type casting errors:\nIf the user inputs something invalid (e.g., letters instead of numbers), conversion will fail. This can be handled with error checking (advanced topic).\n\nAdditional data type examples:\nis_raining = False\nmessage = \"Hello, Python!\"\nprice = 99.99\nx = 10"
+      }
+    ]
+
 } ,
 
 {
