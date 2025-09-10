@@ -112,7 +112,7 @@ function App() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   {currentSection.title}
                 </h2>
-                <p className="text-gray-600 mb-8">{currentSection.text}</p>
+                <div   className="text-gray-600 mb-8"   dangerouslySetInnerHTML={{ __html: currentSection.text }} />
               </div>
 
               <div className="flex items-center justify-between pt-8">
