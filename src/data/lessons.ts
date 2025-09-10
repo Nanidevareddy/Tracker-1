@@ -37,18 +37,8 @@ export const lessons: Lesson[] = [
         "id": "what-is-python",
         "type": "ai_explanation",
         "title": "What is Python?",
-        "text": `Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.
+        "text": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has grown to become one of the most popular programming languages worldwide. It is widely used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.\n\nPython's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.\n\nKey features of Python include:\n- Easy to learn and use: Python has a simple syntax that mirrors natural language.\n- Interpreted language: Python code runs line by line, which makes debugging easier.\n- Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.\n- Large standard library: It includes tools for everything from file handling to networking.\n- Extensive community support: Python has thousands of third-party libraries and frameworks.\n\nIn summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike."
 
-Python's design philosophy emphasizes code readability with its use of significant whitespace (indentation). This makes Python an excellent choice for beginners, as well as for professionals aiming to write clean, maintainable code.
-
-Key features of Python include:
-- Easy to learn and use: Python has a simple syntax that mirrors natural language.
-- Interpreted language: Python code runs line by line, which makes debugging easier.
-- Cross-platform: Python runs on Windows, macOS, Linux, and many other systems.
-- Large standard library: It includes tools for everything from file handling to networking.
-- Extensive community support: Python has thousands of third-party libraries and frameworks.
-
-In summary, Python’s versatility and ease of use make it an ideal language for beginners and experts alike.`
       },
       {
         "id": "install-python",
