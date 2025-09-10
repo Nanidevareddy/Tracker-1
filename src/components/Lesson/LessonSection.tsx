@@ -38,14 +38,6 @@ export const LessonSection: React.FC<LessonSectionProps> = ({
       transition={{ duration: 0.5 }}
       className="space-y-6 w-full"
     >
-      <iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/UrsmFxElp5k"
-  frameBorder="0"
-  allowFullScreen
-  title="Intro Video"
-/>
 
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
