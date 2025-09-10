@@ -9,7 +9,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentLessonId, setCurrentLessonId] = useState(lessons[0]?.id || '');
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const videoUrl = "https://www.youtube.com/embed/qiSCMNBIP2g?start=6127";
 
@@ -78,38 +78,38 @@ function App() {
   onToggle={() => setSidebarOpen(!sidebarOpen)}
   className="w-80 h-full overflow-y-auto"
  />
-        {/* Small embedded video */}
-      <div className="cursor-pointer max-w-md mx-auto" onClick={() => setIsFullscreen(true)}>
-        <iframe
-          width="100%"
-          height="200"
-          src={videoUrl}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Intro Video"
-        />
-      </div>
+       <>
+      {/* The clickable link */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="text-blue-600 underline cursor-pointer hover:text-blue-800"
+      >
+        Watch Python Intro Video
+      </button>
 
-      {/* Fullscreen modal */}
-      {isFullscreen && (
+      {/* Popup overlay */}
+      {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-          onClick={() => setIsFullscreen(false)} // Close on background click
+          onClick={() => setIsOpen(false)}
         >
-          <div className="relative w-full max-w-4xl aspect-video">
+          <div
+            className="relative w-full max-w-5xl aspect-video"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside iframe
+          >
             <iframe
               width="100%"
               height="100%"
-              src={`${videoUrl}&autoplay=1`}
+              src={videoUrl}
+              title="YouTube Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="Intro Video Fullscreen"
-            />
+            ></iframe>
+
             {/* Close button */}
             <button
-              onClick={() => setIsFullscreen(false)}
+              onClick={() => setIsOpen(false)}
               className="absolute top-2 right-2 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
               aria-label="Close video"
             >
