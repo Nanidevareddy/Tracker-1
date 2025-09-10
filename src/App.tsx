@@ -9,6 +9,10 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentLessonId, setCurrentLessonId] = useState(lessons[0]?.id || '');
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const videoUrl = "https://www.youtube.com/embed/qiSCMNBIP2g?start=6127";
+
 
   const currentLesson = lessons.find(lesson => lesson.id === currentLessonId);
   const currentSection = currentLesson?.sections[currentSectionIndex];
@@ -74,14 +78,46 @@ function App() {
   onToggle={() => setSidebarOpen(!sidebarOpen)}
   className="w-80 h-full overflow-y-auto"
  />
+        {/* Small embedded video */}
+      <div className="cursor-pointer max-w-md mx-auto" onClick={() => setIsFullscreen(true)}>
         <iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/UrsmFxElp5k"
-  frameBorder="0"
-  allowFullScreen
-  title="Intro Video"
-/>
+          width="100%"
+          height="200"
+          src={videoUrl}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Intro Video"
+        />
+      </div>
+
+      {/* Fullscreen modal */}
+      {isFullscreen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={() => setIsFullscreen(false)} // Close on background click
+        >
+          <div className="relative w-full max-w-4xl aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`${videoUrl}&autoplay=1`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Intro Video Fullscreen"
+            />
+            {/* Close button */}
+            <button
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-2 right-2 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+              aria-label="Close video"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
 
 
         {/* ✅ Main content - fixed: removed `lg:ml-80` */}
