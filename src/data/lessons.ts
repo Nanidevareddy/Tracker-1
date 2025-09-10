@@ -41,20 +41,19 @@ export const lessons: Lesson[] = [
 
       },
       {
-  
   "id": "what-is-python",
   "type": "ai_explanation",
   "title": "What is Python?",
-  "text": "Python is a high-level language. Here is an intro video:<br><iframe width=\"560\" height=\"315\" src=\"https://youtu.be/UrsmFxEIp5k?si=OFm8SmEH_rYUwaGY\" frameborder=\"0\" allowfullscreen></iframe>"
-
+  "text": "Python is a high-level language. Here is an intro video:<br><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UrsmFxElp5k\" frameborder=\"0\" allowfullscreen></iframe>"
+}
+      {
+  "id": "what-is-python",
+  "type": "ai_explanation",
+  "title": "What is Python?",
+  "text": "Python is a high-level language. Here is an intro video:<br><a href=\"https://www.youtube.com/embed/UrsmFxElp5k\" target=\"_blank\" class=\"text-blue-600 underline\">▶ Watch Intro to Python</a>"
 },
 
-      {
-        "id": "install-python",
-        "type": "ai_explanation",
-        "title": "Installing Python",
-        "text": "Before you start coding in Python, you need to install the Python interpreter on your computer. Here's a step-by-step guide for installing Python:\n\n1. Download Python:\n  - Visit the official Python website at python.org.\n  - The website will usually detect your operating system and suggest the best version for you. As of now, Python 3.x is the standard (avoid Python 2, as it's outdated).\n\n2. Run the Installer:\n  - Open the downloaded installer.\n  - On Windows, make sure to check the box \"Add Python 3.x to PATH\" before clicking \"Install Now.\" This step allows you to run Python from the command line.\n  - Follow the installation prompts.\n\n3. Verify Installation:\n  - Open your command prompt (Windows) or terminal (macOS/Linux).\n  - Type python --version or python3 --version.\n  - If Python is installed correctly, it will display the installed version number.\n\n4. Optional - Install pip:\n  - pip is the package installer for Python and usually comes pre-installed.\n  - To check if pip is installed, type pip --version in your command prompt or terminal.\n  - Pip allows you to install external libraries easily.\n\nOnce installed, you are ready to write and execute Python programs!"
-      },
+        
       {
         "id": "setup-ides",
         "type": "ai_explanation",
