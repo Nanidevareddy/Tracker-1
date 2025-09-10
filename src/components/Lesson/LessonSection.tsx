@@ -85,11 +85,19 @@ export const LessonSection: React.FC<LessonSectionProps> = ({
       )}
 
       {/* Section Text */}
-      {section.text && (
+{/*       {section.text && (
         <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
           <p className="text-gray-700 font-medium">{section.text}</p>
         </div>
-      )}
+      )} */}
+        {/* Section Text */}
+{section.text && (
+  <div
+    className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500 text-gray-700 font-medium"
+    dangerouslySetInnerHTML={{ __html: section.text }}
+  />
+)}
+
 
       {/* Next Button */}
       <div className="flex justify-end">
